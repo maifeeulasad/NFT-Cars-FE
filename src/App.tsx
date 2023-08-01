@@ -5,7 +5,7 @@ import { CustomLayout } from './layout/CustomLayout';
 import { LazyLanding } from './component/landing/LazyLanding';
 
 const App = () => (
-  <BrowserRouter>
+  <BrowserRouter basename="/NFT-Cars-FE/">
     <CustomLayout>
       <Routes>
         <Route path="/" element={<LazyLanding />} />
