@@ -111,9 +111,10 @@ const CarList = ({ title, data }: { title: string; data: ICar[] }) => (
     <Typography.Title level={2}>{title}</Typography.Title>
     <div style={{ overflowX: 'auto', whiteSpace: 'nowrap' }}>
       <div style={{ display: 'flex', gap: '8px' }}>
-        {data.map((car: ICar) => (
+        {data.map((car: ICar, index: number) => (
           <Card
-            key={car.model}
+            // eslint-disable-next-line react/no-array-index-key
+            key={`${car.model}-${index}`}
             cover={<Image preview={false} alt={car.model} src={car.image} />}
             hoverable
           >

@@ -14,16 +14,18 @@ const Header = () => (
   <AntdHeader style={{ backgroundColor: 'transparent' }}>
     <PageHeader
       title="NFT Cars"
-      extra={[<Input.Search
-        placeholder="Used Volkswagon Golf..."
-        style={{ width: 300 }}
-        enterButton={<SearchOutlined />}
-      />,
-      <div className="w-8" />,
-      <Button type="primary" icon={<HeartOutlined />} />,
-      <Button type="primary" icon={<MessageOutlined />} />,
-      <Button type="primary" icon={<BellOutlined />} />,
-      <Button type="primary" icon={<UserOutlined />} />,
+      extra={[
+        <Input.Search
+          key="search"
+          placeholder="Used Volkswagon Golf..."
+          style={{ width: 300 }}
+          enterButton={<SearchOutlined />}
+        />,
+        <div key="space" className="w-8" />,
+        <Button key="saved" type="primary" icon={<HeartOutlined />} />,
+        <Button key="message" type="primary" icon={<MessageOutlined />} />,
+        <Button key="notification" type="primary" icon={<BellOutlined />} />,
+        <Button key="profile" type="primary" icon={<UserOutlined />} />,
       ]}
     />
   </AntdHeader>
