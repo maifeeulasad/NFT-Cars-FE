@@ -1,7 +1,5 @@
 import React from 'react';
-import { List, Card, Image, Typography } from 'antd';
-
-const { Title } = Typography;
+import { Button, Card, Image, Typography } from 'antd';
 
 interface ICar {
   image: string;
@@ -57,25 +55,74 @@ const data2: ICar[] = [
     location: 'City D',
     condition: 'Used',
   },
+  {
+    image: 'https://fastly.picsum.photos/id/715/200/200.jpg?hmac=eR-80S6YYIV9vV26EYLSVACDM5HWe94Oz2hx0icP5vI',
+    model: 'Car Model 4',
+    price: '$18,000',
+    location: 'City D',
+    condition: 'Used',
+  },
+  {
+    image: 'https://fastly.picsum.photos/id/715/200/200.jpg?hmac=eR-80S6YYIV9vV26EYLSVACDM5HWe94Oz2hx0icP5vI',
+    model: 'Car Model 4',
+    price: '$18,000',
+    location: 'City D',
+    condition: 'Used',
+  },
+  {
+    image: 'https://fastly.picsum.photos/id/715/200/200.jpg?hmac=eR-80S6YYIV9vV26EYLSVACDM5HWe94Oz2hx0icP5vI',
+    model: 'Car Model 4',
+    price: '$18,000',
+    location: 'City D',
+    condition: 'Used',
+  },
+  {
+    image: 'https://fastly.picsum.photos/id/715/200/200.jpg?hmac=eR-80S6YYIV9vV26EYLSVACDM5HWe94Oz2hx0icP5vI',
+    model: 'Car Model 4',
+    price: '$18,000',
+    location: 'City D',
+    condition: 'Used',
+  },
+  {
+    image: 'https://fastly.picsum.photos/id/715/200/200.jpg?hmac=eR-80S6YYIV9vV26EYLSVACDM5HWe94Oz2hx0icP5vI',
+    model: 'Car Model 4',
+    price: '$18,000',
+    location: 'City D',
+    condition: 'Used',
+  },
+  {
+    image: 'https://fastly.picsum.photos/id/715/200/200.jpg?hmac=eR-80S6YYIV9vV26EYLSVACDM5HWe94Oz2hx0icP5vI',
+    model: 'Car Model 4',
+    price: '$18,000',
+    location: 'City D',
+    condition: 'Used',
+  },
+  {
+    image: 'https://fastly.picsum.photos/id/715/200/200.jpg?hmac=eR-80S6YYIV9vV26EYLSVACDM5HWe94Oz2hx0icP5vI',
+    model: 'Car Model 4',
+    price: '$18,000',
+    location: 'City D',
+    condition: 'Used',
+  },
 ];
 
 const CarList = ({ title, data }: { title: string; data: ICar[] }) => (
   <div style={{ marginBottom: '24px' }}>
     <Typography.Title level={2}>{title}</Typography.Title>
     <div style={{ overflowX: 'auto', whiteSpace: 'nowrap' }}>
-      <List
-        grid={{ gutter: 16, column: 3 }}
-        dataSource={data}
-        renderItem={(car: ICar) => (
-          <List.Item>
-            <Card cover={<Image preview={false} alt={car.model} src={car.image} />} hoverable>
-              <Card.Meta title={car.model} description={car.price} />
-              <div>Location: {car.location}</div>
-              <div>Condition: {car.condition}</div>
-            </Card>
-          </List.Item>
-        )}
-      />
+      <div style={{ display: 'flex', gap: '8px' }}>
+        {data.map((car: ICar) => (
+          <Card
+            key={car.model}
+            cover={<Image preview={false} alt={car.model} src={car.image} />}
+            hoverable
+          >
+            <Card.Meta title={car.model} description={car.price} />
+            <div>Location: {car.location}</div>
+            <div>Condition: {car.condition}</div>
+          </Card>
+        ))}
+      </div>
     </div>
   </div>
 );
