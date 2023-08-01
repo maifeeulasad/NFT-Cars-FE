@@ -59,46 +59,31 @@ const data2: ICar[] = [
   },
 ];
 
+const CarList = ({ title, data }: { title: string; data: ICar[] }) => (
+  <div style={{ marginBottom: '24px' }}>
+    <Typography.Title level={2}>{title}</Typography.Title>
+    <div style={{ overflowX: 'auto', whiteSpace: 'nowrap' }}>
+      <List
+        grid={{ gutter: 16, column: 3 }}
+        dataSource={data}
+        renderItem={(car: ICar) => (
+          <List.Item>
+            <Card cover={<Image preview={false} alt={car.model} src={car.image} />} hoverable>
+              <Card.Meta title={car.model} description={car.price} />
+              <div>Location: {car.location}</div>
+              <div>Condition: {car.condition}</div>
+            </Card>
+          </List.Item>
+        )}
+      />
+    </div>
+  </div>
+);
+
 const Landing = () => (
   <div>
-    <div style={{ overflowX: 'auto', whiteSpace: 'nowrap' }}>
-      <Title level={2}>Recommended For You</Title>
-      <List
-        grid={{ gutter: 16, column: 3 }}
-        dataSource={data1}
-        renderItem={(car: ICar) => (
-          <List.Item>
-            <Card
-              cover={<Image preview={false} alt={car.model} src={car.image} />}
-              hoverable
-            >
-              <Card.Meta title={car.model} description={car.price} />
-              <div>Location: {car.location}</div>
-              <div>Condition: {car.condition}</div>
-            </Card>
-          </List.Item>
-        )}
-      />
-    </div>
-    <Title level={2}>Saved By You</Title>
-    <div style={{ overflowX: 'auto', whiteSpace: 'nowrap' }}>
-      <List
-        grid={{ gutter: 16, column: 3 }}
-        dataSource={data2}
-        renderItem={(car: ICar) => (
-          <List.Item>
-            <Card
-              cover={<Image preview={false} alt={car.model} src={car.image} />}
-              hoverable
-            >
-              <Card.Meta title={car.model} description={car.price} />
-              <div>Location: {car.location}</div>
-              <div>Condition: {car.condition}</div>
-            </Card>
-          </List.Item>
-        )}
-      />
-    </div>
+    <CarList title="Recommended For You" data={data1} />
+    <CarList title="Saved By You" data={data2} />
   </div>
 );
 
